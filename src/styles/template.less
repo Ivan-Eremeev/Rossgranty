@@ -1,0 +1,301 @@
+// .reset(); от SmartGrid
+body {
+	background-color: @grey;
+	padding-top: 200px;
+}
+.expertise-modal {
+	width: 100%;
+	max-width: 870px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	border-radius: 5px;
+	font-family: "PT_Sans";
+	// position: fixed;
+	// top: 0;
+	// left: 50%;
+	// transform: translate(-50%,0);
+	&_head {
+		display: flex;
+		justify-content: space-between;
+		padding: 16px 30px;
+		border-bottom: 1px solid @grey;
+		@media screen and (max-width: 640px) {
+			padding: 16px 15px;
+		}
+	}
+	&_title {
+		font-family: "PT_Sans-Caption";
+		font-size: 24px;
+		font-weight: bold;
+		color: @black;
+	}
+	&_points {
+		font-family: "PT_Sans";
+		color: #adadad;
+		span {
+			margin-left: 10px;
+			font-family: "PT_Sans-Caption";
+			font-size: 24px;
+			font-weight: bold;
+			color: @black;
+		}
+	}
+	&_subtitle {
+		max-width: 630px;
+		margin-bottom: 10px;
+		display: inline-block;
+		&--bold {
+			font-weight: bold;
+		}
+	}
+	&_num {
+		font-weight: bold;
+	}
+	&_question {
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		margin-left: 5px;
+		background-color: @grey;
+		border-radius: 50%;
+		font-size: 12px;
+		font-weight: bold;
+		color: #fff;
+		line-height: 14px;
+		text-align: center;
+		cursor: pointer;
+		position: relative;
+		vertical-align: middle;
+	}
+	&_form {
+		padding: 25px 30px;
+		@media screen and (max-width: 640px) {
+			padding: 16px 15px;
+		}
+	}
+	&_block {
+		margin-bottom: 12px;
+		&--center {
+			text-align: center;
+		}
+		&--mb {
+			margin-bottom: 25px;
+		}
+		input[type=text] {
+			width: 100%;
+			height: 47px;
+			padding-left: 14px;
+			resize: none;
+			background-color: @greyLight;
+			border: 1px solid @grey;
+			border-radius: 5px;
+			outline: none;
+			font-size: 14px;
+			overflow: auto;
+			transition: .3s;
+			&:focus {
+				box-shadow: inset 0 0 5px @grey;
+			}
+		}
+	}
+	&_radio {
+		display: flex;
+		flex-wrap: wrap;
+		border: 1px solid @grey;
+		border-radius: 5px;
+		margin-bottom: 5px;
+		overflow: hidden;
+		input {
+			display: none;
+			&:checked {
+				+ label {
+					color: @black;
+				}
+			}
+		}
+		label {
+			display: block;
+			flex-grow: 1;
+			padding: 16px 0;
+			background-color: @greyLight;
+			text-align: center;
+			font-size: 20px;
+			color: @grey;
+			border-right: 1px solid @grey;
+			user-select: none;
+			cursor: pointer;
+			transition: .3s;
+			&:hover {
+				box-shadow: inset 0 0 5px @grey;
+			}
+			@media screen and (max-width: 640px) {
+				width: 20%;
+				border-bottom: 1px solid @grey;
+				&:nth-child(5n) {
+					border-right: none;
+				}
+				&:last-child {
+					border-bottom: 1px solid @grey;
+					border-radius: 0 0 5px 0;
+				}
+			}
+			&:last-child {
+				border: none;
+			}
+			&.redLight {
+				background-color: @redLight;
+			}
+			&.yellowLight {
+				background-color: @yellowLight;
+			}
+			&.greenLight {
+				background-color: @greenLight;
+			}
+			&.red {
+				background-color: @red;
+			}
+			&.yellow {
+				background-color: @yellow;
+			}
+			&.green {
+				background-color: @green;
+			}
+		}
+		@media screen and (max-width: 640px) {
+			border-bottom: none;
+		}
+	}
+	&_radio-total {
+		display: flex;
+		input {
+			display: none;
+			&:checked {
+				+ label {
+					&.red {
+						background-color: @red;
+					}
+					&.yellow {
+						background-color: @yellow;
+					}
+					&.green {
+						background-color: @green;
+					}
+				}
+			}
+		}
+		label {
+			display: block;
+			flex-grow: 1;
+			padding: 22px 30px;
+			font-size: 14px;
+			text-align: center;
+			user-select: none;
+			cursor: pointer;
+			transition: .3s;
+			&:hover {
+				box-shadow: inset 0 0 5px @grey;
+			}
+			&.red {
+				background-color: @redLight;
+			}
+			&.yellow {
+				background-color: @yellowLight;
+			}
+			&.green {
+				background-color: @greenLight;
+			}
+		}
+		@media screen and (max-width: 640px) {
+			flex-wrap: wrap;
+			label {
+				width: 100%;
+			}
+		}
+	}
+	&_btn {
+		min-width: 150px;
+		padding: 8px;
+		margin: 0 2px 5px 2px;
+		border-radius: 20px;
+		border: none;
+		outline: none;
+		font-size: 16px;
+		color: #fff;
+		cursor: pointer;
+		transition: .3s;
+		&:nth-child(1) {
+			background-color: #f0f0f0;
+			color: #000;
+			&:hover {
+				background-color: #F4F4F4;
+			}
+		}
+		&:nth-child(2) {
+			background-color: @green;
+			&:hover {
+				background-color: #3CD471;
+			}
+		}
+		&:nth-child(3) {
+			background-color: @red;
+			&:hover {
+				background-color: #FF7C54;
+			}
+		}
+	}
+}
+.tooltip_templates {
+	display: none;
+}
+.tooltipster-sidetip.tooltipster-noir .tooltipster-box {
+	max-width: 300px;
+	border-radius: 5px;
+	border: none;
+	background: rgba(51, 51, 51, .8);
+}
+.tooltipster-sidetip.tooltipster-noir .tooltipster-content {
+	font-family: 'PT_Sans';
+	font-size: 14px;
+	font-weight: normal;
+	color: #fff;
+}
+.tooltipster-sidetip.tooltipster-noir .tooltipster-arrow {
+	height: 9px;
+	margin-left: -9px;
+	width: 18px;
+}
+.tooltipster-sidetip.tooltipster-noir.tooltipster-left .tooltipster-arrow, .tooltipster-sidetip.tooltipster-noir.tooltipster-right .tooltipster-arrow {
+	height: 18px;
+	margin-left: 0;
+	margin-top: -9px;
+	width: 9px;
+}
+.tooltipster-sidetip.tooltipster-noir .tooltipster-arrow-background {
+	border: 9px solid transparent;
+}
+.tooltipster-sidetip.tooltipster-noir.tooltipster-bottom .tooltipster-arrow-background {
+	border-bottom-color: rgba(51, 51, 51, .8);
+	top: 1px;
+}
+.tooltipster-sidetip.tooltipster-noir.tooltipster-left .tooltipster-arrow-background {
+	border-left-color: rgba(51, 51, 51, .8);
+	left: -1px;
+}
+.tooltipster-sidetip.tooltipster-noir.tooltipster-right .tooltipster-arrow-background {
+	border-right-color: rgba(51, 51, 51, .8);
+	left: 1px;
+}
+.tooltipster-sidetip.tooltipster-noir.tooltipster-top .tooltipster-arrow-background {
+	border-top-color: rgba(51, 51, 51, .8);
+	top: -1px
+}
+.tooltipster-sidetip.tooltipster-noir .tooltipster-arrow-border {
+	border-width: 0px
+}
+.tooltipster-sidetip.tooltipster-noir.tooltipster-bottom .tooltipster-arrow-uncropped {
+	top: -9px
+}
+.tooltipster-sidetip.tooltipster-noir.tooltipster-right .tooltipster-arrow-uncropped {
+	left: -9px
+}
