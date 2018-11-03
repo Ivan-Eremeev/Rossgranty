@@ -27,13 +27,30 @@ $(document).ready(function () {
 
 	// Tooltipster Всплывающая подсказка
 	$('.expertise-modal_question').tooltipster({
-		theme : 'tooltipster-noir'
-	});
-	$('.expert-delete_item').tooltipster({
 		theme : 'tooltipster-noir',
-		theme: 'tooltipster-punk',
-   	trigger: 'click'
+		delayTouch: 0,
 	});
+	var expertTooltip = $('.expert-delete_item').tooltipster({
+		theme: 'tooltipster-light',
+   	trigger: 'click',
+   	maxWidth: 200,
+   	contentAsHTML: true,
+   	interactive: true,
+   	side:  ['right', 'top', 'bottom', 'left'],
+   	zIndex: 97,
+	});
+
+	// Отключение подсказки на мобильных
+	function tooltipDisable() {
+		if (window.matchMedia('(max-width: 900px)').matches) {
+			expertTooltip.tooltipster('disable');
+		}
+		else if (window.matchMedia('(min-width: 901px)').matches) {
+			expertTooltip.tooltipster('enable');
+		}
+	};
+
+	tooltipDisable();
 
 	// Аккордеон
 	$('.review-accordeon_trigger').click(function() {
@@ -54,6 +71,45 @@ $(document).ready(function () {
 		}
 	});
 
+	// Autosize Изменение высоты текстового поля при добавлении контента
 	autosize($('textarea'));
+
+	// Попап "подтверждение снятия эксперта"
+	$('.modal-trigger').on('click', function() {
+		var data = $(this).data('modal'),
+				modalOver = $('.modal_over'),
+				modal = $('#modal-' + data);
+		modal.toggleClass('open')
+		.next('.modal_over').toggleClass('open');
+		$('.modal_close').on('click', function() {
+			modal.removeClass('open'),
+			modalOver.removeClass('open');
+		});
+		modalOver.on('click', function() {
+			modal.removeClass('open');
+			modalOver.removeClass('open');
+		});
+	});
+
+	$(window).resize(function() {
+		tooltipDisable();
+	});
+
+	// Мобильное меню
+	$('.menuBtn').click(function () {
+		var menu = $(this).siblings('#menu');
+		// var over = $(this).siblings('.menu_over');
+		var btn = $(this);
+		menu.toggleClass('open');
+		// btn.toggleClass('is-active');
+		// over.click(function() {
+		// 	menu.removeClass('open');
+		// 	btn.removeClass('is-active');
+		// });
+		menu.find('a').click(function() {
+			menu.removeClass('open');
+			// btn.removeClass('is-active');
+		});
+	});
 
 });

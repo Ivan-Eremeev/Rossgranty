@@ -12,10 +12,10 @@
     <!-- review-head -->
     <div class="review-head">
       <div class="container">
-        <div class="review-head_title">Экспертиза по заявке № <span class="review-head_num">17-2-012442</span>
+        <div class="review-head_title">Экспертиза по заявке <span class="review-head_num">№ 17-2-012442</span>
           <span class="review-head_min">Студия Конкурса общественной деятельности детей</span>
         </div>
-        <div class="review-head_points">Общий балл<span>77,00</span></div>
+        <div class="review-head_points"><span class="mobile-hide">Общий балл</span><span class="review-head_points-result">77,00</span></div>
       </div>
     </div>
     <!-- /review-head -->
@@ -25,13 +25,17 @@
       <div class="container">
         <div class="review-body_left">
           <div class="review-body_block">
-            <div class="review-body_item review-body_item--orange">Экспертиза<span>В процессе</span></div>
-            <div class="review-body_item review-body_item--grey">Справка<span>Материалы и видео</span></div>
+            <a href="#" class="review-body_item review-body_item--orange">Экспертиза<span>В процессе</span></a>
+            <a href="#" class="review-body_item review-body_item--grey">Справка<span>Материалы и видео</span></a>
           </div>
         </div>
         <div class="review-body_right">
           <div class="review-body_head">
-            <div class="review-head_title review-head_title--height">За заявкой закреплены эксперты:</div>
+            <div class="review-head_title review-head_title--height menuBtn"><img class="review-head_img" src="img/hamb.svg" alt=""><span class="mobile-hide">За заявкой закреплены эксперты:</span><span class="mobile-visible">Эксперты:</span></div>
+            <div id="menu" class="review-body_block review-body_block--hide">
+              <a href="#" class="review-body_item review-body_item--orange">Экспертиза<span>В процессе</span></a>
+              <a href="#" class="review-body_item review-body_item--grey">Справка<span>Материалы и видео</span></a>
+            </div>
           </div>
 
           <!-- review-add -->
@@ -74,7 +78,8 @@
                   <img src="" alt="">Котова Светлана Сергеевна
                 </div>
                 <div class="review-accordeon_points">
-                  <div>Завершила экспертизу<span>90,00</span></div>
+                  <div class="mobile-hide">Завершила экспертизу<span>90,00</span></div>
+                  <div class="mobile-visible"><span>90,00</span></div>
                 </div>
                 <div class="review-accordeon_triangle"></div>
               </div>
@@ -145,7 +150,8 @@
                   <img src="" alt="">Агапов Олег Дмитриевич
                 </div>
                 <div class="review-accordeon_points">
-                  <div>Завершил экспертизу<span>90,00</span></div>
+                  <div class="mobile-hide">Завершил экспертизу<span>90,00</span></div>
+                  <div class="mobile-visible"><span>90,00</span></div>
                 </div>
                 <div class="review-accordeon_triangle"></div>
               </div>
@@ -216,7 +222,8 @@
                   <img src="" alt="">Вартанова Карина Арамовна
                 </div>
                 <div class="review-accordeon_points">
-                  <div>Не начинала экспертизу<span>00,00</span></div>
+                  <div class="mobile-hide">Не начинала экспертизу<span>00,00</span></div>
+                  <div class="mobile-visible"><span>00,00</span></div>
                 </div>
                 <div class="review-accordeon_triangle"></div>
               </div>
@@ -286,39 +293,59 @@
           
           <!-- expert-delete -->
           <div class="expert-delete">
-            <div class="expert-delete_item" data-tooltip-content="#tooltip-expert">
+            <div class="expert-delete_item" data-tooltip-content="#tooltip-expert1">
               <div class="review-accordeon_name">
                 <img src="" alt="">Котова Светлана Сергеевна
               </div>
               <div class="review-accordeon_points">
-                <div>Завершила экспертизу<span>90,00</span></div>
+                <div class="mobile-hide">Завершила экспертизу<span>90,00</span></div>
+                  <div class="mobile-visible"><span>90,00</span></div>
               </div>
-              <div class="expert-delete_close"></div>
+              <div class="review-accordeon_triangle"></div>
+              <div class="expert-delete_close modal-trigger" data-modal="1"></div>
             </div>
-            <div class="expert-delete_item" data-tooltip-content="#tooltip-expert">
+            <div class="expert-delete_item" data-tooltip-content="#tooltip-expert2">
               <div class="review-accordeon_name">
                 <img src="" alt="">Агапов Олег Дмитриевич
               </div>
               <div class="review-accordeon_points">
-                <div>Завершил экспертизу<span>90,00</span></div>
+                <div class="mobile-hide">Завершил экспертизу<span>90,00</span></div>
+                  <div class="mobile-visible"><span>90,00</span></div>
               </div>
-              <div class="expert-delete_close"></div>
+              <div class="review-accordeon_triangle"></div>
+              <div class="expert-delete_close modal-trigger" data-modal="1"></div>
             </div>
-            <div class="expert-delete_item" data-tooltip-content="#tooltip-expert">
+            <div class="expert-delete_item" data-tooltip-content="#tooltip-expert3">
               <div class="review-accordeon_name">
                 <img src="" alt="">Вартанова Карина Арамовна
               </div>
               <div class="review-accordeon_points">
-                <div>Не начинала экспертизу<span>00,00</span></div>
+                <div class="mobile-hide">Не начинала экспертизу<span>00,00</span></div>
+                  <div class="mobile-visible"><span>00,00</span></div>
               </div>
-              <div class="expert-delete_close"></div>
+              <div class="review-accordeon_triangle"></div>
+              <div class="expert-delete_close modal-trigger" data-modal="1"></div>
             </div>
           </div>
           <div class="tooltip_templates">
-            <div id="tooltip-expert">
+            <div id="tooltip-expert1">
               <div class="tooltip-expert_title">Снятие эксперта</div>
               <p>Доступ эксперта к данной заявке будет прекращен, в случае если экспертиза завершена — она не будет учтена.</p>
-              <button>Cнять эксперта</button>
+              <button class="tooltip-expert_btn modal-trigger" data-modal="1">Cнять эксперта</button>
+            </div>
+          </div>
+          <div class="tooltip_templates">
+            <div id="tooltip-expert2">
+              <div class="tooltip-expert_title">Снятие эксперта</div>
+              <p>Доступ эксперта к данной заявке будет прекращен, в случае если экспертиза завершена — она не будет учтена.</p>
+              <button class="tooltip-expert_btn modal-trigger" data-modal="1">Cнять эксперта</button>
+            </div>
+          </div>
+          <div class="tooltip_templates">
+            <div id="tooltip-expert3">
+              <div class="tooltip-expert_title">Снятие эксперта</div>
+              <p>Доступ эксперта к данной заявке будет прекращен, в случае если экспертиза завершена — она не будет учтена.</p>
+              <button class="tooltip-expert_btn modal-trigger" data-modal="1">Cнять эксперта</button>
             </div>
           </div>
           <!-- /expert-delete -->
@@ -328,6 +355,19 @@
     </div>
     <!-- /review-body -->
   </div>
+
+  <!-- modal-->
+  <div class="modal" id="modal-1">
+    <form action="#" class="modal_content">
+      <div class="modal_title">Вы действительно хотите снять эксперта?</div>
+      <div class="modal_buttons">
+        <div  class="modal_btn modal_btn--grey modal_close">Отменить</div>
+        <button class="modal_btn modal_btn--orange">Снять</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal_over"></div>
+  <!-- /modal-->
 
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/tooltipster.bundle.min.js"></script>

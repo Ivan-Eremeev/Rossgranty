@@ -9,11 +9,24 @@ body {
 	left: 0;
 	right: 0;
 }
+.mobile-hide {
+	@media screen and (max-width: 640px) {
+		display: none;
+	}
+}
+.mobile-visible {
+	@media screen and (min-width: 640px) {
+		display: none;
+	}
+}
 .container {
 	max-width: 1040px;
 	padding: 0 10px;
 	margin-left: auto;
 	margin-right: auto;
+	@media screen and (max-width: 900px) {
+		padding: 0;
+	}
 }
 .expertise-modal {
 	width: 100%;
@@ -227,6 +240,10 @@ body {
 			&.green {
 				background-color: @greenLight;
 			}
+			@media screen and (max-width: 640px) {
+				border-right: none;
+				border-bottom: 1px solid @grey;
+			}
 		}
 		@media screen and (max-width: 640px) {
 			flex-wrap: wrap;
@@ -350,7 +367,15 @@ body {
 		font-size: 24px;
 		font-weight: bold;
 		&--height {
+			display: flex;
+			align-items: center;
 			line-height: 62px;
+		}
+	}
+	&_img {
+		margin-right: 20px;
+		@media screen and (min-width: 900px) {
+			display: none;
 		}
 	}
 	&_num {
@@ -365,14 +390,56 @@ body {
 	&_points {
 		font-family: 'PT_Sans-Caption';
 		font-weight: bold;
-		span {
-			display: inline-block;
-			padding: 5px 15px;
-			margin-left: 20px;
-			font-size: 20px;
-			color: #fff;
-			background-color: @green;
-			border-radius: 20px;
+	}
+	&_points-result {
+		display: inline-block;
+		padding: 5px 15px;
+		margin-left: 20px;
+		font-size: 20px;
+		color: #fff;
+		background-color: @green;
+		border-radius: 20px;
+	}
+	@media screen and (max-width: 900px) {
+		padding: 13px 27px;
+		&_title {
+			&--height {
+				padding: 0 27px;
+				cursor: pointer;
+				&:hover {
+					box-shadow: inset 0 0 5px #d1d1d1;
+				}
+			}
+		}
+		&_num {
+			display: none;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		padding: 20px 10px;
+		.container {
+			flex-wrap: wrap;
+			text-align: center;
+		}
+		&_title {
+			width: 100%;
+			&--height {
+				padding: 0 20px;
+			}
+		}
+		&_num {
+			display: block;
+		}
+		&_points {
+			width: 100%;
+		}
+		&_points-result {
+			margin-left: 0;
+			margin-top: 20px;
+		}
+		&_min {
+			font-size: 14px;
+			margin-top: 10px;
 		}
 	}
 }
@@ -387,12 +454,21 @@ body {
 	}
 	&_block {
 		background-color: #fff;
+		&--hide {
+			@media screen and (min-width: 900px) {
+				display: none;
+			}
+		}
 	}
 	&_item {
+		display: block;
 		padding: 15px 5px 15px 15px ;
 		border: 1px solid @grey;
 		border-right: none;
 		font-size: 12px;
+		color: @black;
+		text-decoration: none;
+		transition: .3s;
 		&:first-child {
 			border-bottom: none;
 		}
@@ -408,6 +484,9 @@ body {
 				color: #bfbfbf;
 			}
 		}
+		&:hover {
+			box-shadow: inset 0 0 5px #d1d1d1;
+		}
 	}
 	&_right {
 		width: 85%;
@@ -420,6 +499,43 @@ body {
 		padding-left: 27px;
 		padding-right: 10px;
 		border-bottom: 1px solid @grey;
+		transition: .3s;
+	}
+	@media screen and (max-width: 900px) {
+		&_head {
+			padding: 0;
+			position: relative;
+			z-index: 5;
+		}
+		&_left {
+			display: none;
+		}
+		&_block {
+			width: 100%;
+			max-height: 0;
+			overflow: hidden;
+			transition: 1s;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			&.open {
+				max-height: 1000px;
+			}
+		}
+		&_item {
+			padding: 15px 27px;
+		}
+		&_right {
+			width: 100%;
+			border-left: none;
+			border-right: none;
+			border-radius: 0;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		&_item {
+			padding: 15px 20px;
+		}
 	}
 }
 .review-accordeon {
@@ -451,8 +567,10 @@ body {
 		}
 	}
 	&_name {
+		display: flex;
+		align-items: center;
 		img {
-			display: inline-block;
+			flex-shrink: 0;
 			width: 32px;
 			height: 32px;
 			margin-right: 16px;
@@ -460,11 +578,16 @@ body {
 			background-color: @grey;
 			vertical-align: middle;
 		}
+		span {
+			display: inline-block;
+		}
 	}
 	&_points {
 		font-size: 14px;
 		font-weight: bold;
+		text-align: right;
 		span {
+			display: inline-block;
 			margin-left: 30px;
 			font-family: "PT_Sans-Caption";
 			font-size: 20px;
@@ -475,9 +598,10 @@ body {
 		width: 12px;
 		height: 8px;
 		position: absolute;
-		top: 32px;
+		top: 50%;
 		right: 23px;
 		transition: .3s;
+		transform: translate(0,-50%);
 		&:before {
 			content: '';
 			display: block;
@@ -560,6 +684,53 @@ body {
 		color: #fff;
 		text-align: center;
 	}
+	@media screen and (max-width: 900px) {
+		&_trigger {
+			padding: 20px 50px 20px 15px;
+		}
+		&_points {
+			span {
+				margin-left: 15px;
+			}
+		}
+	}
+	@media screen and (max-width: 640px) {
+		padding: 0;
+		&_trigger {
+			padding: 20px 30px 20px 15px;
+			margin: 0 20px 5px 20px;
+		}
+		&_name {
+			font-size: 14px;
+		}
+		&_triangle {
+			right: 10px;
+		}
+		&_content {
+			border-left: none;
+			border-right: none;
+			border-radius: 0;
+		}
+		&_block {
+			padding: 20px 20px 90px 20px;
+			&--full {
+				padding: 20px;
+			}
+		}
+		&_points {
+			span {
+				margin-left: 5px;
+			}
+		}
+		&_point {
+			width: 85%;
+			left: 50%;
+			bottom: 20px;
+			top: auto;
+			transform: translate(-50%,0);
+			text-align: center;
+		}
+	}
 }
 .review-add {
 	padding: 20px 27px 0 27px;
@@ -583,6 +754,7 @@ body {
 			outline: none;
 			appearance: none;
 			position: relative;
+			cursor: pointer;
 			z-index: 2;
 			&::-ms-expand {
 			  display: none;
@@ -649,6 +821,30 @@ body {
 		top: 50%;
 		right: 0;
 		transform: translate(0,-50%);
+		transition: .3s;
+		&:hover {
+			background-color: #caa881;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		padding: 20px;
+		&_select {
+			&--narrow {
+				padding: 0;
+				margin-bottom: 0;
+			}
+			select {
+				font-size: 12px;
+			}
+		}
+		button {
+			display: block;
+			width: 100%;
+			margin-top: 40px;
+			height: auto;
+			position: static;
+			padding: 15px;
+		}
 	}
 }
 .expert-delete {
@@ -664,10 +860,224 @@ body {
 		background-color: #fff;
 		cursor: pointer;
 		user-select: none;
+		position: relative;
+		transition: .3s;
+		&:hover {
+			box-shadow: inset 0 0 5px #d1d1d1;
+		}
 	}
 	&_close {
+		display: none;
+		width: 28px;
+		height: 28px;
+		background-color: #fff;
+		border: 1px solid #c09e77;
+		border-radius: 50%;
 		position: absolute;
+		top: -12px;
+		right: -12px;
+		&:after {
+			content: '';
+			display: block;
+			width: 15px;
+			height: 1px;
+			background-color: #a7a7a7;
+			position: absolute;
+			top: 12px;
+			left: 6px;
+			transform: rotate(-45deg);
+		}
+		&:before {
+			content: '';
+			display: block;
+			width: 15px;
+			height: 1px;
+			background-color: #a7a7a7;
+			position: absolute;
+			top: 12px;
+			left: 6px;
+			transform: rotate(45deg);
+		}
+	}
+	@media screen and (max-width: 900px) {
+		&_item {
+			padding: 20px 50px 20px 15px;
+			margin-bottom: 15px;
+		}
+		&_close {
+			display: block;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		padding: 20px;
+		&_item {
+			padding: 20px 30px 20px 15px;
+		}
+	}
+}
+.tooltip-expert_title {
+	color: #ff7048;
+	margin-bottom: 10px;
+}
+
+.tooltipster-sidetip.tooltipster-light .tooltipster-box {
+  border-radius: 3px;
+  border: 1px solid @grey;
+  background: #fff;
+  p {
+  	margin-bottom: 10px;
+  }
+  button {
+  	width: 100%;
+  	padding: 9px;
+		background-color: #ff7048;
+		border: none;
+		border-radius: 20px;
+		outline: none;
+		cursor: pointer;
+		font-size: 16px;
+		color: #fff;
+		transition: .3s;
+		&:hover {
+			background-color: #ff8159;
+		}
+	}
+}
+.tooltipster-sidetip.tooltipster-light .tooltipster-content {
+	padding: 15px;
+	font-size: 12px;
+  color: #808080;
+}
+.tooltipster-sidetip.tooltipster-light .tooltipster-arrow {
+  height: 9px;
+  margin-left: -9px;
+  width: 18px;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-left .tooltipster-arrow, .tooltipster-sidetip.tooltipster-light.tooltipster-right .tooltipster-arrow {
+  height: 18px;
+  margin-left: 0;
+  margin-top: -9px;
+  width: 9px;
+}
+.tooltipster-sidetip.tooltipster-light .tooltipster-arrow-background {
+	border: 9px solid transparent;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-bottom .tooltipster-arrow-background {
+	border-bottom-color: #fff;
+	top: 1px;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-left .tooltipster-arrow-background {
+  border-left-color: #fff;
+  left: -1px;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-right .tooltipster-arrow-background {
+  border-right-color: #fff;
+  left: 1px;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-top .tooltipster-arrow-background {
+  border-top-color: #fff;
+  top: -1px;
+}
+.tooltipster-sidetip.tooltipster-light .tooltipster-arrow-border {
+  border: 9px solid transparent;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-bottom .tooltipster-arrow-border {
+  border-bottom-color: @grey;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-left .tooltipster-arrow-border {
+  border-left-color: @grey;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-right .tooltipster-arrow-border {
+  border-right-color: @grey;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-top .tooltipster-arrow-border {
+  border-top-color: @grey;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-bottom .tooltipster-arrow-uncropped {
+  top: -9px;
+}
+.tooltipster-sidetip.tooltipster-light.tooltipster-right .tooltipster-arrow-uncropped {
+  left: -9px;
+}
+
+.modal {
+	width: 100%;
+	max-width: 410px;
+	padding: 20px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%) scale(0, 0);
+	z-index: 100;
+	transition: .3s;
+	opacity: 0;
+	&.open {
+		transform: translate(-50%,-50%) scale(1, 1);
+		opacity: 1;
+	}
+	&_content {
+		position: relative;
+		padding: 40px;
+		background-color: #fff;
+		border-radius: 5px;
+		text-align: center;
+	}
+	&_title {
+		margin-bottom: 30px;
+		font-family: "PT_Sans-Caption";
+		font-size: 20px;
+		font-weight: bold;
+	}
+	&_buttons {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	&_btn {
+		display: inline-block;
+		width: 48%;
+		min-height: 40px;
+		padding: 9px;
+		border-radius: 20px;
+		font-size: 16px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		&--grey {
+			background-color: #f0f0f0;
+			color: #7e7e7e;
+		}
+		&--orange {
+			background-color: #ff7048;
+			color: #fff;
+		}
+	}
+	&_over {
+		display: none;
+		position: fixed;
 		top: 0;
+		bottom: 0;
+		left: 0;
 		right: 0;
+		background-color: rgba(0, 0, 0, 0.25);
+		z-index: 99;
+		&.open {
+			display: block;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		&_content {
+			padding: 40px 20px;
+		}
+		&_btn {
+			width: 100%;
+			&--grey {
+				order: 2;
+			}
+			&--orange {
+				margin-bottom: 10px;
+				order: 1;
+			}
+		}
 	}
 }
