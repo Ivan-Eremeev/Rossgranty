@@ -49,6 +49,7 @@ body {
 		border-bottom: 1px solid @grey;
 		@media screen and (max-width: 640px) {
 			padding: 16px 15px;
+			flex-wrap: wrap;
 		}
 	}
 	&_title {
@@ -56,6 +57,9 @@ body {
 		font-size: 24px;
 		font-weight: bold;
 		color: @black;
+		@media screen and (max-width: 640px) {
+			width: 100%;
+		}
 	}
 	&_points {
 		font-family: "PT_Sans";
@@ -348,10 +352,6 @@ body {
 	left: -9px
 }
 
-.review {
-	background-color: #f7f7f7;
-	height: 100%;
-}
 .review-head {
 	padding: 13px 0;
 	background-color: #fff;
@@ -537,6 +537,15 @@ body {
 			padding: 15px 20px;
 		}
 	}
+}
+.review-over {
+	background-color: #f7f7f7;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
 }
 .review-accordeon {
 	padding: 10px 27px 27px 27px;
