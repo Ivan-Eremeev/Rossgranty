@@ -32,8 +32,9 @@ $(document).ready(function () {
 	});
 	var expertTooltip = $('.expert-delete_item').tooltipster({
 		theme: 'tooltipster-light',
-   	trigger: 'click',
+   	trigger: 'hover',
    	maxWidth: 200,
+   	minWidth: 200,
    	contentAsHTML: true,
    	interactive: true,
    	side:  ['right', 'top', 'bottom', 'left'],
